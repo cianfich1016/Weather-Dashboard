@@ -12,3 +12,43 @@ header{
 .header{
     font-size: 30px;  
 }
+.mainBody{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.row {
+    margin-top: 1rem;
+    margin-right: .5rem;
+    margin-left: 1rem;
+
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+#search {
+    position: absolute; 
+}
+
+#searchBtn {
+    margin-top: .5rem;
+    width: 100%;
+}
+
+col {
+    margin-bottom: 0rem;
+    padding: 0rem;
+}
+.jumbotron{ 
+    background-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    width: 75%;
+    padding: 0rem;
+
+}
+
