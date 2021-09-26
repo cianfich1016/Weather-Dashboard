@@ -1,0 +1,14 @@
+header{
+    color: white;
+    font-weight: bold;
+    background-image: linear-gradient(to right, blue, black) ;
+    height: 4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    font-size: 30px;  
+}
