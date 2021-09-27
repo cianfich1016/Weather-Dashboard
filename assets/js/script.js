@@ -69,6 +69,8 @@ function getWeather(queryURL2){
                 futureForecast.appendChild(futureWind);
                 futureForecast.appendChild(futureHumidity);
 
+                futureDate.setAttribute("style", "font-size: 20px; font-weight: bold");
+
                 futureDate.textContent = moment().add(1, "days").format("l");
                 futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
                 futureWind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";

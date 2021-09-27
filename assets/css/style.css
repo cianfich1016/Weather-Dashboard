@@ -63,8 +63,6 @@ h3 {
     margin-left: 225px;
     margin-right: 1rem;
     color: white;
-    background-color: #35415E;
-    text-align: left;
     
 }
 
@@ -73,6 +71,9 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: #35415E;
+    padding: .5rem;
+    margin: 1.5rem;
 }
 
 li{
