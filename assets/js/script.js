@@ -55,14 +55,28 @@ function getWeather(queryURL2){
             uv.textContent = "UV Index: " + uvIndex;
 
             
-            for (var i=0; i < 5; i++){
-                var futureTemp = document.querySelector(".dayTemp")
-                futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
+            for (var i=0; i<5; i++){
+                var forecastEL = document.querySelector("#futureWeather");
+                var futureForecast = document.createElement("ul");
+                var futureDate = document.createElement("li")
+                var futureTemp = document.createElement("li");
+                var futureWind = document.createElement("li");
+                var futureHumidity = document.createElement("li");
 
-                var futureWind = document.querySelector(".dayWind")
+                forecastEL.appendChild(futureForecast);
+                futureForecast.appendChild(futureDate);
+                futureForecast.appendChild(futureTemp);
+                futureForecast.appendChild(futureWind);
+                futureForecast.appendChild(futureHumidity);
+
+                futureDate.textContent = moment().add(1, "days").format("l");
+                futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
+                futureWind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
+                futureHumidity.textContent = "Humidity: " + data.daily[i].humidity + "%";
+
             }    
             
-        })
+        });
 }; 
 
 searchButton.addEventListener("click", getCity);

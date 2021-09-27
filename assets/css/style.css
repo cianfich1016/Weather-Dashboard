@@ -62,18 +62,21 @@ h3 {
     padding: 0rem;
     margin-left: 225px;
     margin-right: 1rem;
-    display: flex;
-    justify-content: space-around;
-    
-  
+    color: white;
+    background-color: #35415E;
+    text-align: left;
     
 }
 
-.future0, .future1, .future2, .future3, .future4 {
-    margin-right: 1.5rem;
-    height: 200px;
-    background-color: #35415E;
-    
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+li{
+    margin: .5rem;
 }
 
 .display-4{
