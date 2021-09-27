@@ -78,5 +78,6 @@ h3 {
 .display-4{
     font-size: 200%;
     font-weight: bold;
+    padding-top: .5rem;
 }
 

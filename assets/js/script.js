@@ -30,7 +30,8 @@ function getCoord(queryURL){
 
         getWeather(queryURL2);
 
-        });
+    });
+};
 
 function getWeather(queryURL2){
         fetch(queryURL2)
@@ -39,11 +40,25 @@ function getWeather(queryURL2){
             })
             .then(function(data){
             console.log(data);
+
+            var temp = document.querySelector(".lead1");
+            temp.textContent = "Temp: " + data.current.temp + "\xB0F";
+
+            var wind = document.querySelector(".lead2");
+            wind.textContent = "Wind: " + data.current.wind_speed + " MPH";
+
+            var humidity = document.querySelector(".lead3");
+            humidity.textContent = "Humidity: " + data.current.humidity + "%";
+
+            var uv = document.querySelector(".lead4");
+            uv.textContent = "UV Index: " + data.current.uvi;
             
             })
         
-        };
-    }; 
+}; 
+
+function getFuture(queryURL2)
+    
 
 
 searchButton.addEventListener("click", getCity);
