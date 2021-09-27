@@ -4,17 +4,15 @@ var searchButton = document.getElementById("searchBtn");
 
 function getCity(event){
     event.preventDefault();
+
     var city = document.getElementById("inputCity").value;
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=04c801176447e332047f2f7bc4868de7";
-
-    var chosenCity = document.querySelector(".display-4"); 
-    var date = moment().format("L"); 
-    chosenCity.textContent = city + " (" + date + ")";
-
-    getCoord(queryURL)
-};
+        var chosenCity = document.querySelector(".display-4"); 
+        var date = moment().format("l"); 
+        chosenCity.textContent = city + " (" + date + ")";
+       
     
-function getCoord(queryURL){    
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=04c801176447e332047f2f7bc4868de7";
+  
     fetch(queryURL)
         .then(function(response){
             return response.json();
@@ -25,6 +23,7 @@ function getCoord(queryURL){
         var lon = data.coord.lon;
         //console.log(lat);
         //console.log(lon);
+        
         
         var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=04c801176447e332047f2f7bc4868de7"
 
@@ -51,15 +50,20 @@ function getWeather(queryURL2){
             humidity.textContent = "Humidity: " + data.current.humidity + "%";
 
             var uv = document.querySelector(".lead4");
-            uv.textContent = "UV Index: " + data.current.uvi;
+            var uvIndex = data.current.uvi;
             
-            })
-        
+            uv.textContent = "UV Index: " + uvIndex;
+
+            
+            for (var i=0; i < 5; i++){
+                var futureTemp = document.querySelector(".dayTemp")
+                futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
+
+                var futureWind = document.querySelector(".dayWind")
+            }    
+            
+        })
 }; 
-
-function getFuture(queryURL2)
-    
-
 
 searchButton.addEventListener("click", getCity);
 
