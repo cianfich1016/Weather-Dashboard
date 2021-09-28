@@ -5,6 +5,7 @@ var jumbotron = document.querySelector(".jumbotron");
 var fiveDay = document.querySelector("h3");
 var uvInfo = document.querySelector("span");
 var mainWeather = document.querySelector(".mainWeather");
+
 //Created array to push names of previous cities searched"
 var cities = JSON.parse(localStorage.getItem("cities")) || [];
 
@@ -55,7 +56,7 @@ function getCity(city){
         //Used latitude and longitude data from first call to create a second URL and actually locate city to get weather.
         var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=04c801176447e332047f2f7bc4868de7"
 
-        chosenCity.textContent = city + " (" + date + ")"
+        chosenCity.textContent = city + " (" + date + ")";
 
         getWeather(queryURL2);
 
@@ -69,7 +70,7 @@ function getWeather(queryURL2){
                 return response.json();
             })
             .then(function(data){
-            
+            console.log(data)
             //Create main display of current weather using returned data from API.
             mainWeather.style.display = "block";
 
@@ -83,17 +84,17 @@ function getWeather(queryURL2){
             humidity.textContent = "Humidity: " + data.current.humidity + "%";
             
             //Created uv index adding a span tag to allow for different color badges to show based on uv index number.
-            var uv = document.querySelector(".lead4");
-            var uvIndex = document.createElement("span")
-            uvIndex = data.current.uvi;
-            uv.textContent = uvIndex;
+            //var uv = document.querySelector(".lead4");
+            var uvIndex = document.querySelector("span")
+            uvIndex.textContent = data.current.uvi;
+            console.log(uvIndex.textContent)
 
-            if (uvIndex >= 3 && uvIndex <= 7.99){
-                uv.setAttribute("class", " badge badge-warning")
-            } else if(uvIndex >= 8 && uvIndex <= 10.99){
-                uv.setAttribute("class", "badge badge-danger")
-            } else if(uvIndex >= 11){
-                uv.setAttribute("class", "badge badge-dark");
+            if (uvIndex.textContent >= 3 && uvIndex.textContent <= 7.99){
+                uvIndex.setAttribute("class", " badge badge-warning")
+            } else if(uvIndex.textContent >= 8 && uvIndex.textContent <= 10.99){
+                uvIndex.setAttribute("class", "badge badge-danger")
+            } else if(uvIndex.textContent >= 11){
+                uvIndex.setAttribute("class", "badge badge-dark");
             };
         
             
