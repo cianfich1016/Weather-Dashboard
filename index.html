@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
+    <!--Linking Bootstrap-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />  
   </head>
@@ -12,8 +13,8 @@
       <header>
           <h1 class="header">Weather Dashboard</h1>
       </header>
-
       <div class="mainBody">
+        <!--Search bar on far left.-->
         <form class="row g-3">
             <div class="col-md-2" id="search">
                 <label for="inputCity" class="form-label">Search for a city:</label>
@@ -21,9 +22,10 @@
                 <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
             </div>
         </form>
+        <!--Container to hold previously searched city names as buttons-->
         <div class="previousSearch">
-
         </div>
+        <!--Display of current weather-->
         <div class="jumbotron jumbotron-fluid">
             <div class="container currentHeader">
                 <h1 class="display-4"></h1>
@@ -34,6 +36,7 @@
                 <p class="mainWeather">UV Index: <span class="lead4 badge badge-success"></span></p>
             </div>
         </div>
+        <!--Display of future weather.-->
             <div class="container">
                 <h3>5-Day Forecast:</h3>
                 <div class="row align-items-start" id="futureWeather">
@@ -43,7 +46,7 @@
                 </div>
             </div>
      </div>
-
+    <!--Linked the use of moment.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
