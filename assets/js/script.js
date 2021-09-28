@@ -4,17 +4,36 @@ var jumbotron = document.querySelector(".jumbotron");
 var fiveDay = document.querySelector("h3");
 var uvInfo = document.querySelector("span");
 var mainWeather = document.querySelector(".mainWeather");
+var cities = JSON.parse(localStorage.getItem("cities")) || [];
+console.log(cities)
+document.querySelector(".previousSearch").addEventListener("click", function(e){
+    e.preventDefault();
+    var city = e.target.textContent;
+    console.log(city)
+    getCity(city);
+})
 
-function getCity(event){
-    event.preventDefault();
+if(cities.length){
+    for(var i=0; i < cities.length; i++){
+        var cityEl = document.createElement("button");
+        cityEl.textContent = cities[i];
+        document.querySelector(".previousSearch").appendChild(cityEl);
+    }
+}
 
+function getCity(city){
     jumbotron.style.display = "block";
-    
 
-    var city = document.getElementById("inputCity").value;
-        var chosenCity = document.querySelector(".display-4"); 
-        var date = moment().format("l"); 
-        chosenCity.textContent = city + " (" + date + ")";
+    cities.push(city)
+    localStorage.setItem("cities", JSON.stringify(cities));
+
+    var cityEl = document.createElement("button");
+        cityEl.textContent = city;
+        document.querySelector(".previousSearch").appendChild(cityEl);
+
+    var chosenCity = document.querySelector(".display-4"); 
+    var date = moment().format("l"); 
+    
        
     
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=04c801176447e332047f2f7bc4868de7";
@@ -24,14 +43,14 @@ function getCity(event){
             return response.json();
         })
         .then(function(data){
-        //console.log(data);
+        
         var lat = data.coord.lat;
         var lon = data.coord.lon;
-        //console.log(lat);
-        //console.log(lon);
         
         
         var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=04c801176447e332047f2f7bc4868de7"
+
+        chosenCity.textContent = city + " (" + date + ")"
 
         getWeather(queryURL2);
 
@@ -78,7 +97,7 @@ function getWeather(queryURL2){
                 var forecastEL = document.querySelector("#futureWeather");
                 var futureForecast = document.createElement("ul");
                 var futureDate = document.createElement("li");
-                var futureImage = document.createElement("li");
+                var futureImage = document.createElement("img");
                 var futureTemp = document.createElement("li");
                 var futureWind = document.createElement("li");
                 var futureHumidity = document.createElement("li");
@@ -107,5 +126,10 @@ function getWeather(queryURL2){
         });
 }; 
 
-searchButton.addEventListener("click", getCity);
+searchButton.addEventListener("click", function(e){
+    e.preventDefault();
+    var city = document.getElementById("inputCity").value;
+    getCity(city)
+});
+
 
