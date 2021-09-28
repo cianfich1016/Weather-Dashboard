@@ -60,7 +60,7 @@ h3 {
 #futureWeather{
     width: 93%;
     padding: 0rem;
-    margin-left: 225px;
+    margin-left: 200px;
     margin-right: 1rem;
     color: white;
     
@@ -73,7 +73,7 @@ ul {
     align-items: flex-start;
     background-color: #35415E;
     padding: .5rem;
-    margin: 1.5rem;
+    margin: 1.6rem;
 }
 
 li{

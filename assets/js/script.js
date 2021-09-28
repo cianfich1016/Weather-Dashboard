@@ -49,29 +49,37 @@ function getWeather(queryURL2){
             var humidity = document.querySelector(".lead3");
             humidity.textContent = "Humidity: " + data.current.humidity + "%";
 
-            var uv = document.querySelector(".lead4");
-            var uvIndex = data.current.uvi;
+            //var uv = document.querySelector(".lead4");
+            //var uvIndex = document.querySelector("span");
+
+            //uvIndex.textContent = data.current.uvi;
             
-            uv.textContent = "UV Index: " + uvIndex;
+            //uv.textContent = "UV Index: " + uvIndex.textContent;
 
             
             for (var i=0; i<5; i++){
                 var forecastEL = document.querySelector("#futureWeather");
                 var futureForecast = document.createElement("ul");
-                var futureDate = document.createElement("li")
+                var futureDate = document.createElement("li");
+                var futureImage = document.createElement("li");
                 var futureTemp = document.createElement("li");
                 var futureWind = document.createElement("li");
                 var futureHumidity = document.createElement("li");
 
                 forecastEL.appendChild(futureForecast);
                 futureForecast.appendChild(futureDate);
+                futureForecast.appendChild(futureImage);
                 futureForecast.appendChild(futureTemp);
                 futureForecast.appendChild(futureWind);
                 futureForecast.appendChild(futureHumidity);
 
                 futureDate.setAttribute("style", "font-size: 20px; font-weight: bold");
 
+                var linkImage = data.daily[i].weather[0].icon;
+                console.log(linkImage)
+
                 futureDate.textContent = moment().add(1, "days").format("l");
+                futureImage.src = "http://openweathermap.org/img/wn/" + linkImage + "@2x.png";
                 futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
                 futureWind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
                 futureHumidity.textContent = "Humidity: " + data.daily[i].humidity + "%";
