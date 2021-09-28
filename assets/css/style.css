@@ -51,10 +51,12 @@ col {
     border-color: black;
     width: 75%;
     padding: 0rem;
+    display: none;
 
 }
 h3 {
     margin-left: 225px;
+    display: none;
 }
 
 #futureWeather{

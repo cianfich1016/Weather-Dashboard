@@ -1,9 +1,12 @@
 var APIKey = "04c801176447e332047f2f7bc4868de7";
 var searchButton = document.getElementById("searchBtn");
-
+var jumbotron = document.querySelector(".jumbotron");
+var fiveDay = document.querySelector("h3")
 
 function getCity(event){
     event.preventDefault();
+
+    jumbotron.style.display = "block";
 
     var city = document.getElementById("inputCity").value;
         var chosenCity = document.querySelector(".display-4"); 
@@ -55,7 +58,8 @@ function getWeather(queryURL2){
             //uvIndex.textContent = data.current.uvi;
             
             //uv.textContent = "UV Index: " + uvIndex.textContent;
-
+            
+            fiveDay.style.display = "block";
             
             for (var i=0; i<5; i++){
                 var forecastEL = document.querySelector("#futureWeather");
