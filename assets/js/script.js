@@ -3,6 +3,7 @@ var searchButton = document.getElementById("searchBtn");
 var jumbotron = document.querySelector(".jumbotron");
 var fiveDay = document.querySelector("h3");
 var uvInfo = document.querySelector("span");
+var mainWeather = document.querySelector(".mainWeather");
 
 function getCity(event){
     event.preventDefault();
@@ -44,6 +45,8 @@ function getWeather(queryURL2){
             })
             .then(function(data){
             console.log(data);
+
+            mainWeather.style.display = "block";
 
             var temp = document.querySelector(".lead1");
             temp.textContent = "Temp: " + data.current.temp + "\xB0F";
@@ -88,12 +91,12 @@ function getWeather(queryURL2){
                 futureForecast.appendChild(futureHumidity);
 
                 futureDate.setAttribute("style", "font-size: 20px; font-weight: bold");
+               
 
-                futureImage.setAttribute("src", "http://openweathermap.org/img/wn/10d@2x.png")
+                futureDate.textContent = moment().add(i+1, "days").format("l");
 
-                //var linkImage = data.daily[i].weather[0].icon;
-
-                futureDate.textContent = moment().add(1, "days").format("l");
+                var linkImage = data.daily[i].weather[0].icon;
+                futureImage.setAttribute("src", "https://openweathermap.org/img/wn/" + linkImage + "@2x.png")
             
                 futureTemp.textContent = "Temp: " + data.daily[i].temp.day + "\xB0F";
                 futureWind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";

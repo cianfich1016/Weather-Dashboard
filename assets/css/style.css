@@ -88,3 +88,6 @@ li{
     padding-top: .5rem;
 }
 
+.mainWeather{
+    display: none;
+}
