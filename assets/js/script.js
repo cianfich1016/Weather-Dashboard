@@ -132,15 +132,15 @@ function getWeather(queryURL2){
             }    
             
         });
-        
+         
 }; 
 
 //Click of button event listener to start function once city is typed by user.
 searchButton.addEventListener("click", function(e){
-
     e.preventDefault();
     var city = document.getElementById("inputCity").value;
     getCity(city)
+    
 });
 
 

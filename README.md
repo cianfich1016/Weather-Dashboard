@@ -12,7 +12,11 @@ Below is an image of the web page.
 
 # Deployment Access
 
+https://cianfich1016.github.io/Weather-Dashboard/
+
 # License
+
+https://github.com/cianfich1016/Weather-Dashboard
 
 https://openweathermap.org/api/one-call-api
 
