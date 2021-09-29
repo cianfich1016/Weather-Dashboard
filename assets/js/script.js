@@ -25,6 +25,7 @@ if(cities.length){
 }
 //Function to get city name from user input.
 function getCity(city){
+    
     jumbotron.style.display = "block";
 
     //Add city to array and container of previously chosen cities.
@@ -116,10 +117,8 @@ function getWeather(queryURL2){
                 futureForecast.appendChild(futureTemp);
                 futureForecast.appendChild(futureWind);
                 futureForecast.appendChild(futureHumidity);
-
+                
                 futureDate.setAttribute("style", "font-size: 20px; font-weight: bold");
-               
-
                 futureDate.textContent = moment().add(i+1, "days").format("l");
 
                 //Linked image for icons from API website and daily data.
@@ -133,10 +132,12 @@ function getWeather(queryURL2){
             }    
             
         });
+        
 }; 
 
 //Click of button event listener to start function once city is typed by user.
 searchButton.addEventListener("click", function(e){
+
     e.preventDefault();
     var city = document.getElementById("inputCity").value;
     getCity(city)
