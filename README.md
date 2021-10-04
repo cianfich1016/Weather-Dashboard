@@ -10,6 +10,8 @@ Below is an image of the web page.
 
 ![This is an image depicting the features of the web page. An example as the user types in Orlando.](assets/images/Weather-Dashboard.png)
 
+![This image depicts local storage of previously searched cities.](assets/images/Weather-Dashboard2.png)
+
 # Deployment Access
 
 https://cianfich1016.github.io/Weather-Dashboard/
