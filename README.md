@@ -20,3 +20,5 @@ https://github.com/cianfich1016/Weather-Dashboard
 
 https://openweathermap.org/api/one-call-api
 
+This project is licensed under the terms of the MIT license.
+

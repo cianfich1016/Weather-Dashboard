@@ -71,7 +71,6 @@ function getWeather(queryURL2){
                 return response.json();
             })
             .then(function(data){
-            console.log(data)
             //Create main display of current weather using returned data from API.
             mainWeather.style.display = "block";
 
