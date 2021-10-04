@@ -128,7 +128,11 @@ function getWeather(queryURL2){
                 futureWind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
                 futureHumidity.textContent = "Humidity: " + data.daily[i].humidity + "%";
 
+                forecastEL.replaceChild(futureForecast, forecastEL.childNodes[i])  
+
             }    
+
+            
             
         });
          
