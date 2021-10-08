@@ -29,12 +29,15 @@ function getCity(city){
     jumbotron.style.display = "block";
 
     //Add city to array and container of previously chosen cities.
-    cities.push(city)
-    localStorage.setItem("cities", JSON.stringify(cities));
+    if (cities.includes(city)){
+    } else {
+        cities.push(city)
+        localStorage.setItem("cities", JSON.stringify(cities));
 
-    var cityEl = document.createElement("button");
+        var cityEl = document.createElement("button");
         cityEl.textContent = city;
         document.querySelector(".previousSearch").appendChild(cityEl);
+    }
 
     //User typed city.    
     var chosenCity = document.querySelector(".display-4"); 
@@ -89,11 +92,11 @@ function getWeather(queryURL2){
             uvIndex.textContent = data.current.uvi;
             console.log(uvIndex.textContent)
 
-            if (uvIndex.textContent >= 3 && uvIndex.textContent <= 7.99){
+            if (parseInt(uvIndex.textContent) >= 3 && parseInt(uvIndex.textContent) <= 7.99){
                 uvIndex.setAttribute("class", " badge badge-warning")
-            } else if(uvIndex.textContent >= 8 && uvIndex.textContent <= 10.99){
+            } else if(parseInt(uvIndex.textContent) >= 8 && parseInt(uvIndex.textContent) <= 10.99){
                 uvIndex.setAttribute("class", "badge badge-danger")
-            } else if(uvIndex.textContent >= 11){
+            } else if(parseInt(uvIndex.textContent) >= 11){
                 uvIndex.setAttribute("class", "badge badge-dark");
             };
         
